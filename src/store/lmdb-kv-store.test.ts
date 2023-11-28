@@ -59,7 +59,7 @@ describe('LmdbKvStore', () => {
     await lmdbKvStore.set(key, Buffer.from('test2', 'base64url'));
     const result = await lmdbKvStore.get(key);
     expect(result).not.to.be.undefined;
-    expect(toB64Url(result!)).to.equal('test');
+    expect(toB64Url(result)).to.equal('test');
   });
 
   it('should return a buffer when a Uint8Array is stored in the cache', async () => {
@@ -72,6 +72,6 @@ describe('LmdbKvStore', () => {
     const result = await lmdbKvStore.get(key);
     expect(result).not.to.be.undefined;
     expect(Buffer.isBuffer(result)).to.equal(true);
-    expect(toB64Url(result!)).to.equal('test');
+    expect(toB64Url(result)).to.equal('test');
   });
 });
